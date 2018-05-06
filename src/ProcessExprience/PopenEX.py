@@ -16,6 +16,6 @@ if __name__ == "__main__":
     proc = Popen("which ll", stdout=PIPE, stderr=PIPE, shell=True, env=None, close_fds=False)
     (stdout, stderr) = proc.communicate()
     print stdout
-    os.system("lx")
+    os.system("ls")
 
     pass
