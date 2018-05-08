@@ -10,12 +10,14 @@ alias is not available
 
 """
 
-
 if __name__ == "__main__":
-
-    proc = Popen("which ll", stdout=PIPE, stderr=PIPE, shell=True, env=None, close_fds=False)
+    proc = Popen("df", stdout=PIPE, stderr=PIPE, shell=True, env=None, close_fds=False)
     (stdout, stderr) = proc.communicate()
-    print stdout
-    os.system("ls")
+    print len(stdout.splitlines())
+    stdout = stdout.strip()
+    print len(stdout.splitlines())
+    print stdout.splitlines()
+    print "------------"
+    # os.system("ls")
 
     pass
