@@ -1,0 +1,6 @@
+pip install schedule -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install sqlalchemy -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install APScheduler   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install redis   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install pathlib   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install requests   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
