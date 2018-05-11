@@ -59,7 +59,8 @@ class LogManager(object):
             console.setFormatter(formatter)
 
             _logger.addHandler(r_handler)
-            _logger.addHandler(console)
+            # _logger.addHandler(console)
+            _logger.setLevel(logging.INFO)
 
             LogManager.loggers[name] = _logger
             return _logger

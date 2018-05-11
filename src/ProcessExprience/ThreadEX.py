@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import thread
+# import thread # for python 2
+
+import _thread
 import threading
 import time
 import subprocess
-from multiprocessing import Process, Queue,Pool
+from multiprocessing import Process, Queue, Pool
 import os, time, random
 
 """
@@ -21,46 +23,52 @@ https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a
 
 """
 
+
 ##################################################################
 def timmer_test():
     def time_caller():
-        print ("called")
+        print("called")
         proc = subprocess.Popen("sleep 1 && ls /", stdin=subprocess.PIPE, stderr=subprocess.PIPE,
                                 stdout=subprocess.PIPE, shell=True)
-        print proc.stdout.readlines()  # wait proc exit and get stdout
+        print(proc.stdout.readlines())  # wait process exit and get stdout
 
     timer = threading.Timer(0, time_caller)
     timer.start()
+
+
 ##################################################################
 
 def thraed_test1():
     def target():
-        print 'the curent threading  %s is running' % threading.current_thread().name
+        print('the current threading  %s is running' % threading.current_thread().name)
         time.sleep(1)
-        print 'the curent threading  %s is ended' % threading.current_thread().name
+        print('the current threading  %s is ended' % threading.current_thread().name)
 
     def target2():
-        print 'the curent threading  %s is running' % threading.current_thread().name
+        print('the current threading  %s is running' % threading.current_thread().name)
         time.sleep(1)
-        print 'the curent threading  %s is ended' % threading.current_thread().name
-        thread.exit()
+        print('the current threading  %s is ended' % threading.current_thread().name)
+        # thread.exit()
+        _thread.exit()
 
-    print 'the curent threading  %s is running' % threading.current_thread().name
+    print('the current threading  %s is running' % threading.current_thread().name)
     # Thread(group=None, target=None, name=None,args=(), kwargs=None, verbose=None)
     t = threading.Thread(target=target)
     t.setDaemon(True)
     t.start()
     t.join()
+
+    # noinspection PyBroadException
     try:
-        thread.start_new_thread(target2, ())
+        # thread.start_new_thread(target2, ())
+        _thread.start_new_thread(target2, ())
         time.sleep(3)
-    except:
-        print "Error: unable to start thread"
-
-
+    except Exception:
+        print("Error: unable to start thread")
 
     # t.join(1)   # main thread wait 1s ,t will be killed if it is not end
-    print 'the curent threading  %s is ended' % threading.current_thread().name
+    print('the current threading  %s is ended' % threading.current_thread().name)
+
 
 ##################################################################
 balance = 0
@@ -92,7 +100,8 @@ def thread_lock_test():
     t2.start()
     t1.join()
     t2.join()
-    print balance
+    print(balance)
+
 
 ##################################################################
 
@@ -102,13 +111,14 @@ def process_test1():
     import platform
 
     if platform.system() == "Linux":
-        print 'Process (%s) start...' % os.getpid()
+        print('Process (%s) start...' % os.getpid())
         # Unix/Linux操作系统提供了一个fork()系统调用,Windows上无法运行
         pid = os.fork()
         if pid == 0:
-            print 'I am child process (%s) and my parent is %s.' % (os.getpid(), os.getppid())
+            print('I am child process (%s) and my parent is %s.' % (os.getpid(), os.getppid()))
         else:
-            print 'I (%s) just created a child process (%s).' % (os.getpid(), pid)
+            print('I (%s) just created a child process (%s).' % (os.getpid(), pid))
+
 
 ##################################################################
 
@@ -121,52 +131,55 @@ def process_test2():
     # 子进程要执行的代码
 
     def run_proc(name):
-        print 'Run child process %s (%s)...' % (name, os.getpid())
+        print('Run child process %s (%s)...' % (name, os.getpid()))
 
-    print 'Parent process %s.' % os.getpid()
+    print('Parent process %s.' % os.getpid())
     p = Process(target=run_proc, args=('test',))
-    print 'Process will start.'
+    print('Process will start.')
     p.start()
     p.join()
-    print 'Process end.'
+    print('Process end.')
+
 
 ##################################################################
 
 
 def long_time_task(name):
-    print 'Run task %s (%s)...' % (name, os.getpid())
+    print('Run task %s (%s)...' % (name, os.getpid()))
     start = time.time()
     time.sleep(random.random() * 3)
 
     end = time.time()
-    print 'Task %s runs %0.2f seconds.' % (name, (end - start))
+    print('Task %s runs %0.2f seconds.' % (name, (end - start)))
 
 
 def process_pool_test1():
-
-    print 'Parent process %s.' % os.getpid()
+    print('Parent process %s.' % os.getpid())
     # 由于Pool的默认大小是CPU的核数
     p = Pool()
     for i in range(5):
         p.apply_async(long_time_task, args=(i,))
-    print 'Waiting for all subprocesses done...'
+    print('Waiting for all sub processes done...')
     p.close()
     p.join()
-    print 'All subprocesses done.'
+    print('All sub processes done.')
+
 
 ##################################################################
 # 写数据进程执行的代码:
 def write(q):
     for value in ['A', 'B', 'C']:
-        print 'Put %s to queue...' % value
+        print('Put %s to queue...' % value)
         q.put(value)
         time.sleep(random.random())
+
 
 # 读数据进程执行的代码:
 def read(q):
     while True:
         value = q.get(True)
-        print 'Get %s from queue.' % value
+        print('Get %s from queue.' % value)
+
 
 def process_pool_test2():
     # 父进程创建Queue，并传给各个子进程：
@@ -182,6 +195,7 @@ def process_pool_test2():
     # pr进程里是死循环，无法等待其结束，只能强行终止:
     pr.terminate()
 
+
 ##################################################################
 ##################################################################
 if __name__ == "__main__":
@@ -194,4 +208,3 @@ if __name__ == "__main__":
     # process_pool_test2()
     thraed_test1()
     pass
-
