@@ -83,12 +83,12 @@ def call_method4():
         time.sleep(0.005)
 
 
-    print proc.returncode  # exit_code
-    print proc.pid  # thread_pid
-    print proc.wait()  # wait proc exit and return the exit_code
-    print proc.returncode
-    print proc.stderr.readlines()  # read proc stderr
-    print proc.stdout.readlines()  # read proc stdout
+    print (proc.returncode)  # exit_code
+    print (proc.pid)  # thread_pid
+    print (proc.wait())  # wait proc exit and return the exit_code
+    print (proc.returncode)
+    print (proc.stderr.readlines())  # read proc stderr
+    print (proc.stdout.readlines())  # read proc stdout
     # print proc.stdin
 
     pass

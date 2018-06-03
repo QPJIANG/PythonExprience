@@ -5,3 +5,5 @@ pip install redis   -i http://pypi.douban.com/simple --trusted-host pypi.douban.
 pip install pathlib   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install requests   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install pyyaml   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install flask   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install flask-restful   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
