@@ -7,3 +7,4 @@ pip install requests   -i http://pypi.douban.com/simple --trusted-host pypi.doub
 pip install pyyaml   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install flask   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install flask-restful   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install petl   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
