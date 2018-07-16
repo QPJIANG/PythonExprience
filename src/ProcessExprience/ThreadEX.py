@@ -9,6 +9,8 @@ import subprocess
 from multiprocessing import Process, Queue, Pool
 import os, time, random
 
+from concurrent.futures import ThreadPoolExecutor
+
 """
 https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/0013868323401155ceb3db1e2044f80b974b469eb06cb43000
 在Unix/Linux下，multiprocessing模块封装了fork()调用，使我们不需要关注fork()的细节。
@@ -194,6 +196,10 @@ def process_pool_test2():
     pw.join()
     # pr进程里是死循环，无法等待其结束，只能强行终止:
     pr.terminate()
+
+
+def thread_pool_test():
+    TP_excutor = ThreadPoolExecutor(10)
 
 
 ##################################################################

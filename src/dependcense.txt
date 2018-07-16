@@ -11,3 +11,6 @@ pip install futures   -i http://pypi.douban.com/simple --trusted-host pypi.douba
 pip install flask   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install flask-restful   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install petl   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install cacheout   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install redis   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install pygrametl   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
