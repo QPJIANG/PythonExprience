@@ -14,3 +14,5 @@ pip install petl   -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
 pip install cacheout   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install redis   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install pygrametl   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install ipython   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install cx_Oracle   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
