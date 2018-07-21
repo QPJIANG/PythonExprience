@@ -5,8 +5,16 @@ pip install redis   -i http://pypi.douban.com/simple --trusted-host pypi.douban.
 pip install pathlib   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install requests   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install pyyaml   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install petl   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install psycopg2   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install futures   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install flask   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install flask-restful   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install petl   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install flask-sqlalchemy -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install Flask-Script -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install cacheout   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install pygrametl   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install ipython   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install cx_Oracle   -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+
